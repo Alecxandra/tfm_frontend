@@ -16,6 +16,7 @@ const ModelTraining = () => import(/* webpackChunkName: "common" */ "@/pages/Mod
 const CreateModel = () => import(/* webpackChunkName: "common" */ "@/pages/ModelTraining/CreateModel.vue");
 const ModelNNDetail = () => import(/* webpackChunkName: "common" */ "@/pages/ModelTraining/ModelNNDetail.vue");
 const ModelSVMDetail = () => import(/* webpackChunkName: "common" */ "@/pages/ModelTraining/ModelSVMDetail.vue");
+const DashboardNN = () => import(/* webpackChunkName: "common" */ "@/pages/Dashboard/DashboardNN.vue");
 
 const routes = [
   {
@@ -88,6 +89,11 @@ const routes = [
         name: "Model detail",
         component: ModelSVMDetail
       },
+      {
+        path: "model-nn-dashboard/:id",
+        name: "Neural Network Dashboard",
+        component: DashboardNN
+      }
     ]
   },
   { path: "*", component: NotFound },
