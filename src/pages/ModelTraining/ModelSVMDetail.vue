@@ -17,6 +17,12 @@
                       <option value="precomputed">Precomputed</option>
                     </select>
                 </div>
+                <div class="col-md-4">
+                    <base-input label="Test size"
+                              placeholder="Test size"
+                              >
+                    </base-input>
+                </div>
             </div>
 
             <div class="row button-row">

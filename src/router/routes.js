@@ -17,6 +17,7 @@ const CreateModel = () => import(/* webpackChunkName: "common" */ "@/pages/Model
 const ModelNNDetail = () => import(/* webpackChunkName: "common" */ "@/pages/ModelTraining/ModelNNDetail.vue");
 const ModelSVMDetail = () => import(/* webpackChunkName: "common" */ "@/pages/ModelTraining/ModelSVMDetail.vue");
 const DashboardNN = () => import(/* webpackChunkName: "common" */ "@/pages/Dashboard/DashboardNN.vue");
+const GeneralConfig = () => import(/* webpackChunkName: "common" */ "@/pages/GeneralConfigPage.vue");
 
 const routes = [
   {
@@ -93,6 +94,11 @@ const routes = [
         path: "model-nn-dashboard/:id",
         name: "Neural Network Dashboard",
         component: DashboardNN
+      },
+        {
+        path: "general-config/",
+        name: "General config",
+        component: GeneralConfig
       }
     ]
   },

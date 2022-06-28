@@ -71,6 +71,40 @@
                 </scatter-chart>
             </card>
         </div>
+        <div class="col-md-6">
+            <card>
+                <template slot="header">
+                    <h3 class="card-title"><i class="tim-icons icon-send text-success "></i> Confusion matrix</h3>
+                </template>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="confusion-matrix">
+                    <div class="row">
+                        <div>
+                            <h4>Actual values</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="option positive-value">
+                            560
+                        </div>
+                        <div class="option negative-value">
+                            60
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="option negative-value">
+                            50
+                        </div>
+                        <div class="option positive-value">
+                            330
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </card>
+        </div>
     </div>
 
   </div>
@@ -236,4 +270,23 @@
   };
 </script>
 <style>
+    .confusion-matrix {
+        margin-left: 193px;
+    }
+
+    .confusion-matrix .option {
+        font-size: 60px;
+        color: #f9f9fa;
+        padding: 30px;
+        width: 200px;
+        text-align: center;
+    }
+
+    .positive-value {
+        background-color: #39996a;
+    }
+
+    .confusion-matrix .negative-value {
+        background-color: #fd5d93;
+    }
 </style>
