@@ -17,6 +17,7 @@ const CreateModel = () => import(/* webpackChunkName: "common" */ "@/pages/Model
 const ModelNNDetail = () => import(/* webpackChunkName: "common" */ "@/pages/ModelTraining/ModelNNDetail.vue");
 const ModelSVMDetail = () => import(/* webpackChunkName: "common" */ "@/pages/ModelTraining/ModelSVMDetail.vue");
 const DashboardNN = () => import(/* webpackChunkName: "common" */ "@/pages/Dashboard/DashboardNN.vue");
+const DashboardSVM = () => import(/* webpackChunkName: "common" */ "@/pages/Dashboard/DashboardSVM.vue");
 const GeneralConfig = () => import(/* webpackChunkName: "common" */ "@/pages/GeneralConfigPage.vue");
 
 const routes = [
@@ -99,7 +100,12 @@ const routes = [
         path: "general-config/",
         name: "General config",
         component: GeneralConfig
-      }
+      },
+      {
+        path: "model-svm-dashboard/:id",
+        name: "Support Vector Machine Dashboard",
+        component: DashboardSVM
+      },
     ]
   },
   { path: "*", component: NotFound },

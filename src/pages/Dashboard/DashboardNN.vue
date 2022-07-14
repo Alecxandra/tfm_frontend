@@ -81,23 +81,24 @@
                         <div class="confusion-matrix">
                     <div class="row">
                         <div>
-                            <h4>Actual values</h4>
+                            <h4>Predicted values</h4>
+                        </div>
+                    </div>
+                            <!-- tn, fp, fn, tp --->
+                    <div class="row">
+                        <div class="option positive-value">
+                            {{this.metrics.confusion_matrix.true_positive}}
+                        </div>
+                        <div class="option negative-value">
+                             {{this.metrics.confusion_matrix.false_positive}}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="option positive-value">
-                            560
-                        </div>
                         <div class="option negative-value">
-                            60
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="option negative-value">
-                            50
+                            {{this.metrics.confusion_matrix.false_negative}}
                         </div>
                         <div class="option positive-value">
-                            330
+                            {{this.metrics.confusion_matrix.true_negative}}
                         </div>
                     </div>
                 </div>
@@ -136,7 +137,13 @@
             precision: 0.0,
             auc: 0.0,
             loss: 0.0,
-            val_loss: 0.0
+            val_loss: 0.0,
+            confusion_matrix: {
+                true_positive: 0,
+                false_positive: 0,
+                false_negative: 0,
+                true_negative: 0
+            }
         },
         rocChart: {},
 
@@ -207,12 +214,35 @@
               });
           });
 
+          // second roc curve
+          let fp_rate_2 = JSON.parse("[0.0, 0.13067896308119772, 1.0]");
+          let tp_rate_2 = JSON.parse("[0.0, 0.9637077722655327, 1.0]");
+
+          let roc_2 = [];
+
+          fp_rate_2.forEach(function (value, i) {
+              roc_2.push({
+                  x: value,
+                  y: tp_rate_2[i]
+              });
+          });
+
+
+          // tn, fp, fn, tp
+
+          let confusion_matrix = JSON.parse(response.data.settings.confusion_matrix);
+
+          this.metrics.confusion_matrix.true_positive = confusion_matrix[0][0];
+          this.metrics.confusion_matrix.true_negative = confusion_matrix[1][1];
+          this.metrics.confusion_matrix.false_positive = confusion_matrix[0][1];
+          this.metrics.confusion_matrix.false_negative = confusion_matrix[1][0];
+
           this.rocChart = {
             extraOptions: chartConfigs.purpleChartOptions,
             chartData: {
             datasets: [
                 {
-                  label: "Data",
+                  label: "NNM",
                   fill: true,
                   showLine: true,
                   borderColor: config.colors.primary,
@@ -227,6 +257,23 @@
                   pointHoverBorderWidth: 15,
                   pointRadius: 4,
                   data: roc_chart_data,
+                },
+                {
+                  label: "SVM",
+                  fill: true,
+                  showLine: true,
+                  borderColor: '#d7a0d9',
+                  borderWidth: 2,
+                  borderDash: [],
+                  borderDashOffset: 0.0,
+                  pointBackgroundColor: '#d7a0d9',
+                  pointBorderColor: 'rgba(255,255,255,0)',
+                  pointHoverBackgroundColor: '#d7a0d9',
+                  pointBorderWidth: 20,
+                  pointHoverRadius: 4,
+                  pointHoverBorderWidth: 15,
+                  pointRadius: 4,
+                  data: roc_2,
                 },
                 {
                   label: "Reference",
@@ -275,7 +322,7 @@
     }
 
     .confusion-matrix .option {
-        font-size: 60px;
+        font-size: 46px;
         color: #f9f9fa;
         padding: 30px;
         width: 200px;
