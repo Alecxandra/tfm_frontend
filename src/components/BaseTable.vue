@@ -15,6 +15,24 @@
             v-if="hasValue(item, column)">
           {{itemValue(item, column)}}
         </td>
+        <td>
+          <template v-if="item['model type'] === 'SVM_CLASSIFIER'">
+            <base-button class="option-buttons" @click="$router.push(`/model-svm-detail/${item['identifier'] }`)">
+              <i class="tim-icons icon-molecule-40"></i>
+            </base-button>
+            <base-button class="option-buttons" @click="$router.push(`model-svm-dashboard/${item['identifier'] }`)">
+              <i class="tim-icons icon-chart-bar-32"></i>
+            </base-button>
+          </template>
+          <template v-if="item['model type'] === 'NNW_CLASSIFIER'">
+            <base-button class="option-buttons" @click="$router.push(`/model-nn-detail/${item['identifier'] }`)">
+              <i class="tim-icons icon-molecule-40"></i>
+            </base-button>
+            <base-button  class="option-buttons" @click="$router.push(`model-nn-dashboard/${item['identifier'] }`)">
+              <i class="tim-icons icon-chart-bar-32"></i>
+            </base-button>
+          </template>
+        </td>
       </slot>
     </tr>
     </tbody>
@@ -65,5 +83,9 @@
     }
   };
 </script>
+
 <style>
+  .option-buttons {
+    margin-right: 10px !important;
+  }
 </style>
