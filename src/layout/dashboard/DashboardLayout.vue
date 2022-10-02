@@ -2,10 +2,10 @@
   <div class="wrapper">
     <side-bar>
       <template slot="links">
-        <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')" icon="tim-icons icon-chart-pie-36"/>
+        <sidebar-link to="/principal-dashboard" :name="$t('sidebar.dashboard')" icon="tim-icons icon-chart-pie-36"/>
         <sidebar-link to="/dataprocessor" name="Data processor" icon="tim-icons icon-components"/>
         <sidebar-link to="/model-training" name="Model training" icon="tim-icons icon-vector"/>
-        <sidebar-link to="/general-settings" name="General Settings" icon="tim-icons icon-settings-gear-63"/>
+        <sidebar-link to="/configs" name="General Settings" icon="tim-icons icon-settings-gear-63"/>
 <!--        <sidebar-link to="/icons" :name="$t('sidebar.icons')" icon="tim-icons icon-atom"/>-->
 <!--        <sidebar-link to="/maps" :name="$t('sidebar.maps')" icon="tim-icons icon-pin"/>-->
 <!--        <sidebar-link to="/notifications" :name="$t('sidebar.notifications')" icon="tim-icons icon-bell-55"/>-->

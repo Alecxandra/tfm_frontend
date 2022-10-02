@@ -215,17 +215,17 @@
           });
 
           // second roc curve
-          let fp_rate_2 = JSON.parse("[0.0, 0.13067896308119772, 1.0]");
-          let tp_rate_2 = JSON.parse("[0.0, 0.9637077722655327, 1.0]");
-
-          let roc_2 = [];
-
-          fp_rate_2.forEach(function (value, i) {
-              roc_2.push({
-                  x: value,
-                  y: tp_rate_2[i]
-              });
-          });
+          // let fp_rate_2 = JSON.parse("[0.0, 0.13067896308119772, 1.0]");
+          // let tp_rate_2 = JSON.parse("[0.0, 0.9637077722655327, 1.0]");
+          //
+          // let roc_2 = [];
+          //
+          // fp_rate_2.forEach(function (value, i) {
+          //     roc_2.push({
+          //         x: value,
+          //         y: tp_rate_2[i]
+          //     });
+          // });
 
 
           // tn, fp, fn, tp
@@ -258,23 +258,23 @@
                   pointRadius: 4,
                   data: roc_chart_data,
                 },
-                {
-                  label: "SVM",
-                  fill: true,
-                  showLine: true,
-                  borderColor: '#d7a0d9',
-                  borderWidth: 2,
-                  borderDash: [],
-                  borderDashOffset: 0.0,
-                  pointBackgroundColor: '#d7a0d9',
-                  pointBorderColor: 'rgba(255,255,255,0)',
-                  pointHoverBackgroundColor: '#d7a0d9',
-                  pointBorderWidth: 20,
-                  pointHoverRadius: 4,
-                  pointHoverBorderWidth: 15,
-                  pointRadius: 4,
-                  data: roc_2,
-                },
+                // {
+                //   label: "SVM",
+                //   fill: true,
+                //   showLine: true,
+                //   borderColor: '#d7a0d9',
+                //   borderWidth: 2,
+                //   borderDash: [],
+                //   borderDashOffset: 0.0,
+                //   pointBackgroundColor: '#d7a0d9',
+                //   pointBorderColor: 'rgba(255,255,255,0)',
+                //   pointHoverBackgroundColor: '#d7a0d9',
+                //   pointBorderWidth: 20,
+                //   pointHoverRadius: 4,
+                //   pointHoverBorderWidth: 15,
+                //   pointRadius: 4,
+                //   data: roc_2,
+                // },
                 {
                   label: "Reference",
                   fill: true,

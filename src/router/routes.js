@@ -19,12 +19,15 @@ const ModelSVMDetail = () => import(/* webpackChunkName: "common" */ "@/pages/Mo
 const DashboardNN = () => import(/* webpackChunkName: "common" */ "@/pages/Dashboard/DashboardNN.vue");
 const DashboardSVM = () => import(/* webpackChunkName: "common" */ "@/pages/Dashboard/DashboardSVM.vue");
 const GeneralConfig = () => import(/* webpackChunkName: "common" */ "@/pages/GeneralConfigPage.vue");
+const GeneralSettings = () => import(/* webpackChunkName: "common" */ "@/pages/Config.vue");
+const ImportDataForm = () => import(/* webpackChunkName: "common" */ "@/pages/DataProcessor/ImportDataForm.vue");
+const PrincipalDashboard = () => import(/* webpackChunkName: "common" */ "@/pages/Dashboard/PrincipalDashboard");
 
 const routes = [
   {
     path: "/",
     component: DashboardLayout,
-    redirect: "/dashboard",
+    redirect: "/principal-dashboard",
     children: [
       {
         path: "dashboard",
@@ -106,6 +109,21 @@ const routes = [
         name: "Support Vector Machine Dashboard",
         component: DashboardSVM
       },
+      {
+        path: "configs/",
+        name: "General settings",
+        component: GeneralSettings
+      },
+      {
+        path: "upload-data/",
+        name: "Import transaction data",
+        component: ImportDataForm
+      },
+      {
+        path: "principal-dashboard/",
+        name: "Dashboard",
+        component: PrincipalDashboard
+      }
     ]
   },
   { path: "*", component: NotFound },

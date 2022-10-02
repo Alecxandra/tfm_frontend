@@ -48,7 +48,7 @@
       return {
         table_data: [],
         table_columns: tableColumns,
-        page: 1,
+        page: 0,
         pageCount: 0
       }
     },
